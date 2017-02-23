@@ -21,7 +21,7 @@ OBJ = 		$(SRC:.c=.o)
 
 # System-specific settings
 
-CC =		g++
+CC =		emcc
 CCFLAGS =	-O -fPIC -I. # add -I to insure mpi.h from this dir is included
 ARCHIVE =	ar
 ARCHFLAG =	rs

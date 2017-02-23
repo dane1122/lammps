@@ -1,5 +1,16 @@
 This is the LAMMPS software package.
 
+EMSCRIPTEN BUILD GUIDE
+
+1. Get Emscripten: https://kripken.github.io/emscripten-site/docs/getting_started/downloads.html
+2. Clone or download LAMMPS source code from 'stable' branch and 'cd' into the 'src' directory
+4. emmake make mpi-stubs
+5. emmake make yes-ASPHERE yes-BODY yes-CLASS2 yes-COLLOID yes-CORESHELL yes-DIPOLE yes-GRANULAR yes-KSPACE yes-MANYBODY yes-MC yes-MOLECULE yes-OPT yes-PERI yes-PYTHON yes-REPLICA yes-RIGID yes-SHOCK yes-SNAP yes-SRD
+6. emmake make yes-USER-MOLFILE
+7. 'emmake make emcc-serial mode=shlib' to build lammps
+8. Verify that 'liblammps.bc' and 'liblammps_emcc_serial.bc' libraries are create
+9. see README in 'web' directory for compiling into web assembly
+
 LAMMPS stands for Large-scale Atomic/Molecular Massively Parallel
 Simulator.
 
