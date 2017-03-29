@@ -7,6 +7,7 @@ To resolve these limiting factors, Autodesk's BioNano group authored a series of
 Emscripten is helping powerful C++ and C tools come into the web by compiling C++/C code into highly-optimizable JavaScript. This lets us run LAMMPS at near-native speed without additional plugins on the browser. To get started, just __clone this repository__ and __checkout our emscripten__ branch to get all the necessary files you need to compile LAMMPS into JavaScript.
 
 
+
 ## Our Contributions 
 
 We had to modify/create our custom makefiles to successfully compile LAMMPS using Emscripten. The files that were changed/created are as below:
@@ -17,6 +18,7 @@ We had to modify/create our custom makefiles to successfully compile LAMMPS usin
  
 In addition, not all the packages that come with LAMMPS can be compiled into Emscripten *yet*. The packages we CAN compile as of now are:
 > mpi-stubs, ASHPHERE, BODY, CLASS2, COLLOID, CORESHELL, DIPOLE, GRANULAR, KSPACE, MANYBODY, MC, MOLECULE, OPT, PERI, PYTHON, REPLICA, RIGID, SHOCK, SNAP, SRD
+
 
 
 ## Emscripten Compilation Guide 
@@ -30,7 +32,9 @@ Below are the step-by-step instructions on how to compile LAMMPS using Emscripte
 5. Make LAMMPS by entering `emmake make emcc-serial mode=shlib` in terminal. Note that it is crucial that you use __Makefile.emcc-serial__ and that you use the __shlib__ flag to build LAMMPS. Without the flag, you cannot use LAMMPS on the browser. 
 6. Verify that `liblammps.bc` and `liblammps_emcc_serial.bc` files are created
 
-> LAMMPS was succesfully created. Note that in order to use the compiled LAMMPS in __another__ C++ project, you need to reference the entire `src` directory to include all the headers and build the other C++ project with the `liblammps.bc` and `liblammps_emcc_serial.bc` files! 
+
+> Note that in order to use the compiled LAMMPS in __another__ C++ project, you need to reference the entire `src` directory to include all the headers and build the other C++ project with the `liblammps.bc` and `liblammps_emcc_serial.bc` files! 
+
 
 
 ## Note from LAMMPS authors
